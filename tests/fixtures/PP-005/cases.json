@@ -1,0 +1,32 @@
+{
+  "ruleId": "PP-005",
+  "configure": {
+    "PP-005": {
+      "values": [
+        "Level 1",
+        "Level 2",
+        "Level 3",
+        "Level 4",
+        "Level 5"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "PP-005-compliant.json",
+      "expect": {
+        "ruleId": "PP-005",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "PP-005-unsafe.json",
+      "expect": {
+        "ruleId": "PP-005",
+        "count": 1
+      }
+    }
+  ]
+}

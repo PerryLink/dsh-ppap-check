@@ -1,0 +1,195 @@
+# PPAP 提交要素核对 规则库
+#
+# 规则数据与代码分离：替换本文件即可切换规则集版本，无需改动 TypeScript。
+#
+# 条款引用纪律（由 shared/ruleset.ts 强制校验）：
+#   - 每条规则必须写全 document / number / clause / excerpt / kind / source，
+#     且 excerpt 必须是逐字摘录，不得改写。
+#   - kind: direct                       条款直接规定了所检查的要求
+#   - kind: derived-from-principle       条款未直接规定，仅能由原则性条款推论（severity 最多 warn）
+#   - kind: institutional-configuration 阈值出自本机构配置（severity 最多 info）
+#
+# ⚠️⚠️ 本规则库的诚实说明：**excerpt 一律不是引文。**
+#   本插件核对的是"PPAP（生产件批准程序）提交要素清单"是否齐备、自洽。
+#   其规范载体是汽车行业的 **AIAG《生产件批准程序（PPAP）手册》**
+#   （对应 IATF 16949 体系下的顾客特殊要求）。
+#   **核查未取得该手册的逐字条文**，因此本规则库**不伪造任何"原文"**：
+#   每条规则的 excerpt 都写明"该条文本次未取得"，依据状态放在 note 里如实说明；
+#   kind 一律降为 derived-from-principle（封顶 warn）或 institutional-configuration（封顶 info）。
+#   **取得条文后必须做两件事**：把 excerpt 换成真正的逐字摘录，把 kind 升为 direct。
+#   在那之前，本插件的命中信息只应被读作"这个要素没提交 / 版本没填 / 等级没写明"，
+#   而**不是**"PPAP 不合格"。
+#
+# ⚠️⚠️ 另一条**必须保留**的边界：**本插件绝不判定 PPAP 是否可批准、
+#   提交等级是否恰当、要素内容是否满足顾客要求**。
+#   → PPAP 的**提交等级（Level 1~5）由顾客指定**，
+#     各级别要求提交哪些要素、哪些只需保留备查，**完全取决于顾客的指定**；
+#     本插件**不内置任何等级的要素清单**——
+#     哪些要素在该等级必须提交，由使用方按顾客要求填写清单里的「是否要求」栏（required）。
+#   → 因此本插件只核对**清单自身的齐备与自洽**：
+#     顾客要求的要素是否都已提交、已提交的是否填了日期与版本、
+#     清单是否写明零件号与提交等级、序号是否重复、是否残留模板占位符。
+#   → **提交等级清单（values）出厂为空**，未配置即进 skipped。
+
+plugin: dsh-ppap-check
+version: "2026.1"
+
+rules:
+  - id: PP-001
+    title: 顾客要求的要素应已提交
+    severity: warn
+    basis:
+      document: 《生产件批准程序（PPAP）手册》
+      number: AIAG PPAP（现行版次与条号本次未核实）
+      clause: 关于提交要素与提交等级的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得 AIAG PPAP 手册的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.aiag.org/ （PPAP 手册为 AIAG 商业出版物，需购买；此为其发布机构首页，无公开正文可链接）
+    params:
+      check:
+        kind: conditionalPresence
+        conditionField: required
+        requiredFields: [submitted]
+        conditionValues: ['是', 'Y', 'yes', 'true', '要求', '√']
+        fix: 补提交或说明未提交原因；本条只核对清单闭环，不判断要素内容是否合格
+    note: >-
+      "顾客要求提交的要素必须实际提交"是 PPAP 流程的**基本闭环**：
+      清单上标了要求却没有提交记录，这份清单就不能用来判断 PPAP 状态。
+      本次未取得明文条号，故封顶 warn。
+      ⚠️ **哪些要素属于"要求提交"完全取决于顾客指定的提交等级**（Level 1~5），
+      因此本条读取的是**清单里的「是否要求」栏**（required），而不是任何内置清单。
+      conditionValues 为判定"要求"的取值清单，可按本机构表式调整。
+      本条只核对"要求了是否就提交了"，**不判断该要素内容是否合格**。
+
+  - id: PP-002
+    title: 已提交的要素应填写提交日期
+    severity: warn
+    basis:
+      document: 《生产件批准程序（PPAP）手册》
+      number: AIAG PPAP（现行版次与条号本次未核实）
+      clause: 关于提交记录与日期的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得 AIAG PPAP 手册的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.aiag.org/ （PPAP 手册为 AIAG 商业出版物，需购买；此为其发布机构首页，无公开正文可链接）
+    params:
+      check:
+        kind: conditionalPresence
+        conditionField: submitted
+        requiredFields: [submittedAt]
+        conditionValues: ['是', 'Y', 'yes', 'true', '已提交', '√']
+    note: >-
+      要素"已提交"却没有日期，就无法判断它是在初次提交时给的还是后续补的，
+      顾客审阅与内部跟踪都失去时间基准。本次未取得明文条号，故封顶 warn。
+      本条只核对日期栏是否填写，**不判断日期是否在顾客要求的时限内**——
+      提交时限由顾客的项目计划决定。
+
+  - id: PP-003
+    title: 带版本要求的受控要素应填写版本
+    severity: warn
+    basis:
+      document: 《生产件批准程序（PPAP）手册》
+      number: AIAG PPAP（现行版次与条号本次未核实）
+      clause: 关于文件版本标识的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得 AIAG PPAP 手册的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.aiag.org/ （PPAP 手册为 AIAG 商业出版物，需购买；此为其发布机构首页，无公开正文可链接）
+    params:
+      check:
+        kind: conditionalPresence
+        conditionField: element
+        requiredFields: [version]
+        conditionValues: []
+        conditionPattern: '(设计记录|工程更改|DFMEA|PFMEA|控制计划|过程流程图|尺寸结果|测量系统|样件|检查辅具|零件提交保证书|PSW|材料报告|初始过程能力)'
+    note: >-
+      设计记录、FMEA、控制计划、过程流程图、尺寸结果、测量系统分析等要素都是**受控文件**：
+      缺版本号就无法确认提交的是哪一版，也就无法与顾客的现行图样／规范比对。
+      本次未取得明文条号，故封顶 warn。
+      conditionPattern 用于识别"带版本要求的要素名称"，可按本机构清单调整；
+      匹配到却没有版本号的要素会逐条报出。
+      本条只核对版本栏是否填写，**不判断版本是否正确、是否是最新版**。
+
+  - id: PP-004
+    title: 清单应声明零件号与提交等级
+    severity: warn
+    basis:
+      document: 《生产件批准程序（PPAP）手册》
+      number: AIAG PPAP（现行版次与条号本次未核实）
+      clause: 关于零件标识与提交等级的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得 AIAG PPAP 手册的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.aiag.org/ （PPAP 手册为 AIAG 商业出版物，需购买；此为其发布机构首页，无公开正文可链接）
+    params:
+      check:
+        kind: headerPresence
+        fields: [partNo, level]
+    note: >-
+      **提交等级由顾客指定**，零件号标识被批准的零件；两者缺一，
+      清单就无法说明"这是哪个零件、按哪一级要求提交的"，
+      也就无法判断该等级下这些要素是否够。本次未取得明文条号，故封顶 warn。
+      配置项 partNo 对应材料顶层的零件号，level 对应提交等级。
+      若本机构表式把等级记在明细行而非表头，请调整本条的 fields 或另建一条检查。
+
+  - id: PP-005
+    title: 提交等级应使用本机构顾客口径的取值
+    severity: info
+    basis:
+      document: 《生产件批准程序（PPAP）手册》
+      number: AIAG PPAP（现行版次与条号本次未核实）
+      clause: 关于提交等级的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得 AIAG PPAP 手册的逐字原文，本规则库不伪造引文。
+      kind: institutional-configuration
+      source: https://www.aiag.org/ （PPAP 手册为 AIAG 商业出版物，需购买；此为其发布机构首页，无公开正文可链接）
+    params:
+      check:
+        kind: headerEnum
+        field: level
+        values: []
+    note: >-
+      values 出厂为空，表示**未配置**，本条进 skipped。
+      依据说明：PPAP 的提交等级（Level 1~5）由**顾客规定**，
+      等级名称的写法（"Level 3"／"等级3"／"3"）也因顾客而异；
+      本插件**不硬编码任何取值清单**。
+      配置示例：values: ['Level 1', 'Level 2', 'Level 3', 'Level 4', 'Level 5']。
+      本条只核对所填值是否在册，**不判断该等级选择是否正确**——那是顾客的决定。
+
+  - id: PP-006
+    title: 要素清单不应残留未替换的占位符
+    severity: warn
+    basis:
+      document: 《生产件批准程序（PPAP）手册》
+      number: AIAG PPAP（现行版次与条号本次未核实）
+      clause: 关于提交要素记录的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得 AIAG PPAP 手册的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.aiag.org/ （PPAP 手册为 AIAG 商业出版物，需购买；此为其发布机构首页，无公开正文可链接）
+    params:
+      check:
+        kind: containsAny
+        field: element
+        terms: ['【', '】', '{{', '}}', 'XXX', 'xxx', '待填', '待补充', 'TBD', 'todo']
+        fix: 要素名称应填写实际内容；残留占位符说明清单是照模板抄的
+    note: >-
+      PPAP 清单常由模板复制而来，要素栏留下【】、XXX、待填、TBD 之类占位符时，
+      会让人误以为已经核对了顾客要求——**这是清单类工具最危险的失效方式**。
+      本次未取得明文条号，故封顶 warn。terms 可按本机构模板调整。
+
+  - id: PP-007
+    title: 要素序号不应在清单内重复
+    severity: warn
+    basis:
+      document: 《生产件批准程序（PPAP）手册》
+      number: AIAG PPAP（现行版次与条号本次未核实）
+      clause: 关于提交要素清单的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得 AIAG PPAP 手册的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.aiag.org/ （PPAP 手册为 AIAG 商业出版物，需购买；此为其发布机构首页，无公开正文可链接）
+    params:
+      check:
+        kind: unique
+        field: elementNo
+    note: >-
+      要素序号唯一是"每个要素只被登记一次"的**前提条件**：序号重复会让人无法判断
+      到底是重复登记，还是两项不同要素被错编成同一号。本次未取得明文条号，故封顶 warn。
+      比较时忽略空白字符。命中通常意味着重复登记或序号抄错，需人工确认。
+
+disabled: []
