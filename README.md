@@ -1,4 +1,23 @@
-# dsh-ppap-check
+# dsh-ppap-check — PPAP submission element completeness check
+
+`dsh-ppap-check` reads one PPAP submission element checklist — the part header plus one row per element — and checks what a checklist can be held to mechanically: that an element the customer required carries a submission record, that a submitted element carries a date, that a controlled element (design record, FMEA, control plan, process flow, dimensional results, MSA) carries a revision, that the sheet names its part number and submission level, that element numbers are unique, and that no template placeholder survives in the element column.
+
+## What it answers
+
+| You ask | What it answers |
+|---|---|
+| An element is marked as required in the 是否要求 column, but there is no submission record for it — is that reported? | Yes. `PP-001` reports the row when the `required` column holds a value that counts as required (`是`, `Y`, `yes`, `true`, `要求`, `√`) while the `submitted` column is empty. It reads that column of your own checklist, never a built-in element list — which elements are required depends on the level the customer specifies — and it does not judge whether the content of what was submitted is acceptable. |
+| The row is marked as submitted, but the date cell is empty. And if the date is filled in but falls after the customer's deadline? | `PP-002` reports a row whose `submitted` column holds a value that counts as submitted (`是`, `Y`, `yes`, `true`, `已提交`, `√`) while the `submittedAt` cell is blank. It only checks that the date cell is filled in — whether the date falls inside the deadline set by the customer's project plan is not checked. |
+| The control plan row is filled in but its version cell is empty — will that be reported, and what about elements that carry no revision by nature? | `PP-003` looks at element names matching `conditionPattern` — design record, engineering change, DFMEA/PFMEA, control plan, process flow, dimensional results, measurement-system analysis, samples, checking aids, PSW, material reports, preliminary process capability — and reports each matching row whose `version` cell is empty. It only checks that the version is filled in, not that it is the correct or the current revision; narrow the pattern if an element genuinely carries no revision. |
+| Every element row looks complete, but the tool says the sheet is missing the part number and the level. Our form records the level on each row instead. | `PP-004` reads the header only: `partNo` and `level` must both be present at the top of the material. If your form keeps the level on the detail rows, change this rule's `fields` or write a check of your own — the rule does not look for those values inside the rows. |
+| The level cell reads `Level 3`, but `PP-005` never says anything about it. | `PP-005` ships with an empty `values` list, and empty means unconfigured, so it reports itself in `skipped` instead of passing quietly. Put your customer's level spellings into `values` and it will report any value that is not on the list. Even then it only checks that the value is on your list — whether the level chosen is the right one is the customer's decision — which is why the rule is capped at `info`. |
+| Our checklist was copied from last year's template: one element name still reads 【待填】 and two rows carry the same element number. | `PP-006` reports an element name that still contains a placeholder — `【`, `】`, `{{`, `}}`, `XXX`, `xxx`, `待填`, `待补充`, `TBD`, `todo`, a `terms` list you can adjust to your own template. `PP-007` reports a repeated element number in `elementNo`, comparing with whitespace ignored; a hit usually means the element was registered twice or the number was copied wrong, and which of the two it is has to be confirmed by a person. |
+
+## Standards it follows
+
+| Document | Number | Cited by rules |
+|---|---|---|
+| 《生产件批准程序（PPAP）手册》 | AIAG PPAP（现行版次与条号本次未核实） | PP-001, PP-002, PP-003, PP-004, PP-005, PP-006, PP-007 |
 
 **Boundary:** this plugin checks a **PPAP 提交要素清单** for what a checklist can be held to mechanically —
 that an element the customer required carries a submission record, that a submitted element carries a date,

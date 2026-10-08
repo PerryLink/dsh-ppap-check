@@ -1,4 +1,23 @@
-# dsh-ppap-check
+# dsh-ppap-check — Verificação da completude dos elementos de submissão do PPAP
+
+`dsh-ppap-check` lê uma lista de elementos de submissão do PPAP —o cabeçalho da peça mais uma linha por elemento— e verifica o que a uma lista se pode exigir mecanicamente: que um elemento exigido pelo cliente tenha um registo de submissão, que um elemento submetido tenha data, que um elemento controlado (registo de projeto, FMEA, plano de controlo, fluxograma do processo, resultados dimensionais, MSA) tenha uma revisão, que a folha indique o número da peça e o nível de submissão, que os números de elemento sejam únicos e que não sobreviva nenhum marcador de modelo na coluna do elemento.
+
+## O que ele responde
+
+| Você pergunta | O que ele responde |
+|---|---|
+| Um elemento está marcado como exigido na coluna 是否要求, mas não há registo de submissão — isso é reportado? | Sim. `PP-001` assinala a linha quando a coluna `required` contém um valor que conta como exigido (`是`, `Y`, `yes`, `true`, `要求`, `√`) e a coluna `submitted` está vazia. Lê essa coluna da sua própria lista, nunca um catálogo de elementos incorporado — que elementos são exigidos depende do nível que o cliente indicar — e não julga se o conteúdo do que foi submetido é aceitável. |
+| A linha consta como submetida, mas a célula da data está vazia. E se a data estiver preenchida mas cair depois do prazo do cliente? | `PP-002` assinala a linha cuja coluna `submitted` contém um valor que conta como submetido (`是`, `Y`, `yes`, `true`, `已提交`, `√`) e cuja célula `submittedAt` está em branco. Verifica apenas que a célula da data está preenchida: não verifica se a data cai dentro do prazo definido pelo plano de projeto do cliente. |
+| A linha do plano de controlo está preenchida mas a célula da versão está vazia — é reportado? E os elementos que por natureza não têm versão? | `PP-003` olha para os nomes de elemento que correspondem a `conditionPattern` — registo de projeto, alteração de engenharia, DFMEA/PFMEA, plano de controlo, fluxograma do processo, resultados dimensionais, análise do sistema de medição, amostras, auxiliares de verificação, PSW, relatórios de material, capacidade inicial do processo — e reporta cada linha correspondente cuja célula `version` esteja vazia. Verifica apenas que a versão está preenchida, não que seja a correta ou a vigente; se um elemento realmente não tiver versão, restrinja o padrão. |
+| Todas as linhas de elementos parecem completas, mas a ferramenta diz que falta o número da peça e o nível. No nosso formulário o nível fica em cada linha. | `PP-004` lê apenas o cabeçalho: `partNo` e `level` têm de estar ambos no topo do material. Se o seu formulário guarda o nível nas linhas de detalhe, altere os `fields` desta regra ou escreva uma verificação própria — a regra não procura esses valores dentro das linhas. |
+| A célula do nível diz `Level 3`, mas o `PP-005` não diz nada sobre isso. | O `PP-005` vem com a lista `values` vazia, e vazia significa não configurada, pelo que se reporta em `skipped` em vez de passar em silêncio. Coloque em `values` as grafias de nível do seu cliente e ela assinalará qualquer valor fora da lista. Mesmo assim, verifica apenas se o valor está na sua lista — se o nível escolhido é o correto decide o cliente — e é por isso que está limitada a `info`. |
+| A nossa lista foi copiada do modelo do ano passado: um nome de elemento ainda diz 【待填】 e duas linhas têm o mesmo número de elemento. | `PP-006` assinala um nome de elemento que ainda contém um marcador — `【`, `】`, `{{`, `}}`, `XXX`, `xxx`, `待填`, `待补充`, `TBD`, `todo`, uma lista `terms` ajustável ao seu modelo. `PP-007` assinala um número de elemento repetido em `elementNo`, comparando com os espaços em branco ignorados; um achado costuma significar que o elemento foi registado duas vezes ou que o número foi copiado mal, e qual das duas coisas é tem de ser confirmado por uma pessoa. |
+
+## Normas que segue
+
+| Documento | Número | Regras que o citam |
+|---|---|---|
+| 《生产件批准程序（PPAP）手册》 | AIAG PPAP（现行版次与条号本次未核实） | PP-001, PP-002, PP-003, PP-004, PP-005, PP-006, PP-007 |
 
 **Boundary:** this plugin checks a **PPAP 提交要素清单** for what a checklist can be held to mechanically —
 that an element the customer required carries a submission record, that a submitted element carries a date,
