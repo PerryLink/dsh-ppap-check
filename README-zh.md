@@ -38,8 +38,7 @@ set, and this plugin ships no level-to-element mapping.**
 ## Install
 
 ```sh
-pnpm pack
-dsh plugin --profile <name> add ./*.tgz
+dsh plugin --profile <name> add dsh-ppap-check
 dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
 ```
 
