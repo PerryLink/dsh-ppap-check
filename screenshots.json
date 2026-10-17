@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/assets/dsh-ppap-check-hero.png",
+    "kind": "hero",
+    "alt": "dsh-ppap-check terminal output",
+    "caption": "Real dsh-ppap-check checker output; 31 tests passed."
+  },
+  {
+    "path": "docs/assets/dsh-ppap-check-demo.gif",
+    "kind": "demo",
+    "alt": "Animated dsh-ppap-check terminal session",
+    "caption": "The same run, assembled line by line."
+  }
+]
