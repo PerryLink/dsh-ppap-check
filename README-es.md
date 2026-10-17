@@ -4,6 +4,13 @@
 
 `dsh-ppap-check` lee una lista de elementos de presentación del PPAP —la cabecera de la pieza más una fila por elemento— y comprueba lo que a una lista se le puede exigir mecánicamente: que un elemento requerido por el cliente lleve un registro de presentación, que un elemento presentado lleve fecha, que un elemento controlado (registro de diseño, FMEA, plan de control, diagrama de flujo del proceso, resultados dimensionales, MSA) lleve una revisión, que la hoja indique su número de pieza y su nivel de presentación, que los números de elemento sean únicos y que no sobreviva ningún marcador de plantilla en la columna del elemento.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-ppap-check
+dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
+```
+
 ## Cómo se ve la salida
 
 ![Terminal demo of dsh-ppap-check: real output over its PP-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-ppap-check/main/docs/assets/dsh-ppap-check-hero.png)
@@ -63,13 +70,6 @@ set, and this plugin ships no level-to-element mapping.**
 ## What it does
 
 La tabla de reglas, los campos y el comportamiento detallado están en [README.md](README.md#what-it-does) (versión principal en inglés). El plugin sólo enumera divergencias literales frente a las cláusulas citadas e indica en `skipped` cada comprobación que no pudo ejecutarse.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-ppap-check
-dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
-```
 
 ## Configuration
 

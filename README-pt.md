@@ -4,6 +4,13 @@
 
 `dsh-ppap-check` lê uma lista de elementos de submissão do PPAP —o cabeçalho da peça mais uma linha por elemento— e verifica o que a uma lista se pode exigir mecanicamente: que um elemento exigido pelo cliente tenha um registo de submissão, que um elemento submetido tenha data, que um elemento controlado (registo de projeto, FMEA, plano de controlo, fluxograma do processo, resultados dimensionais, MSA) tenha uma revisão, que a folha indique o número da peça e o nível de submissão, que os números de elemento sejam únicos e que não sobreviva nenhum marcador de modelo na coluna do elemento.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-ppap-check
+dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
+```
+
 ## Como é a saída
 
 ![Terminal demo of dsh-ppap-check: real output over its PP-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-ppap-check/main/docs/assets/dsh-ppap-check-hero.png)
@@ -63,13 +70,6 @@ set, and this plugin ships no level-to-element mapping.**
 ## What it does
 
 A tabela de regras, os campos e o comportamento detalhado estão em [README.md](README.md#what-it-does) (versão principal em inglês). O plugin apenas lista divergências literais frente às cláusulas citadas e indica em `skipped` cada verificação que não pôde ser executada.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-ppap-check
-dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
-```
 
 ## Configuration
 

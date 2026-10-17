@@ -4,6 +4,13 @@
 
 `dsh-ppap-check` PPAP प्रस्तुति-तत्वों की एक सूची पढ़ता है — पुर्जे का हेडर और प्रत्येक तत्व की एक पंक्ति — और उस सूची से जो यंत्रवत् जाँचा जा सकता है, वह जाँचता है: ग्राहक द्वारा माँगे गए तत्व का प्रस्तुति-रिकॉर्ड दर्ज है या नहीं, प्रस्तुत तत्व की तिथि भरी है या नहीं, नियंत्रित तत्व (डिज़ाइन रिकॉर्ड, FMEA, नियंत्रण योजना, प्रक्रिया प्रवाह, आयामी परिणाम, MSA) का संस्करण भरा है या नहीं, शीट में पुर्जा-क्रमांक और प्रस्तुति-स्तर लिखा है या नहीं, तत्व-क्रमांक अद्वितीय हैं या नहीं, और तत्व-कॉलम में कोई टेम्पलेट प्लेसहोल्डर शेष नहीं है।
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-ppap-check
+dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
+```
+
 ## आउटपुट कैसा दिखता है
 
 ![Terminal demo of dsh-ppap-check: real output over its PP-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-ppap-check/main/docs/assets/dsh-ppap-check-hero.png)
@@ -63,13 +70,6 @@ set, and this plugin ships no level-to-element mapping.**
 ## What it does
 
 नियम-सूची, फ़ील्ड और विस्तृत व्यवहार [README.md](README.md#what-it-does) (अंग्रेज़ी मुख्य संस्करण) में हैं। यह प्लगइन केवल उद्धृत धाराओं के सामने शाब्दिक अंतर सूचीबद्ध करता है और हर न चल पाई जाँच को `skipped` में बताता है।
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-ppap-check
-dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
-```
 
 ## Configuration
 

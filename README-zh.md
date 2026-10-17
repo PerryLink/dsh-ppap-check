@@ -4,6 +4,13 @@
 
 `dsh-ppap-check` 读取一份 PPAP 提交要素清单——表头加每个要素一行——核对这份清单自身能被机械核对的部分：顾客要求的要素是否留下提交记录、已提交的要素是否填写提交日期、受控要素（设计记录、FMEA、控制计划、过程流程图、尺寸结果、测量系统分析）是否填写版本、清单是否写明零件号与提交等级、要素序号是否唯一、要素栏是否残留模板占位符。
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-ppap-check
+dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
+```
+
 ## 实际输出长什么样
 
 ![Terminal demo of dsh-ppap-check: real output over its PP-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-ppap-check/main/docs/assets/dsh-ppap-check-hero.png)
@@ -63,13 +70,6 @@ set, and this plugin ships no level-to-element mapping.**
 ## What it does
 
 规则表、字段说明与行为细节见 [README.md](README.md#what-it-does)（英文主版本）。本插件只列出材料与所引条款之间的字面差异，并对无法执行的检查在 `skipped` 中逐项说明。
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-ppap-check
-dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
-```
 
 ## Configuration
 

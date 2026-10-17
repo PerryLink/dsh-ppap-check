@@ -4,6 +4,13 @@
 
 `dsh-ppap-check` reads one PPAP submission element checklist — the part header plus one row per element — and checks what a checklist can be held to mechanically: that an element the customer required carries a submission record, that a submitted element carries a date, that a controlled element (design record, FMEA, control plan, process flow, dimensional results, MSA) carries a revision, that the sheet names its part number and submission level, that element numbers are unique, and that no template placeholder survives in the element column.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-ppap-check
+dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
+```
+
 ## What it looks like
 
 ![Terminal demo of dsh-ppap-check: real output over its PP-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-ppap-check/main/docs/assets/dsh-ppap-check-hero.png)
@@ -74,13 +81,6 @@ element — applies a versioned rule pack, and returns a report.
 | `PP-005` | the level comes from your customer's vocabulary (off by default) | info | local |
 | `PP-006` | the element column holds no unreplaced placeholder | warn | principle |
 | `PP-007` | element numbers are unique | warn | principle |
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-ppap-check
-dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
-```
 
 ## Configuration
 
