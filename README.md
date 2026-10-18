@@ -1,5 +1,7 @@
 # dsh-ppap-check — PPAP submission element completeness check
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-ppap-check` reads one PPAP submission element checklist — the part header plus one row per element — and checks what a checklist can be held to mechanically: that an element the customer required carries a submission record, that a submitted element carries a date, that a controlled element (design record, FMEA, control plan, process flow, dimensional results, MSA) carries a revision, that the sheet names its part number and submission level, that element numbers are unique, and that no template placeholder survives in the element column.

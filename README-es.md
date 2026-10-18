@@ -1,5 +1,7 @@
 # dsh-ppap-check — Verificación de la completitud de los elementos de presentación del PPAP
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-ppap-check` lee una lista de elementos de presentación del PPAP —la cabecera de la pieza más una fila por elemento— y comprueba lo que a una lista se le puede exigir mecánicamente: que un elemento requerido por el cliente lleve un registro de presentación, que un elemento presentado lleve fecha, que un elemento controlado (registro de diseño, FMEA, plan de control, diagrama de flujo del proceso, resultados dimensionales, MSA) lleve una revisión, que la hoja indique su número de pieza y su nivel de presentación, que los números de elemento sean únicos y que no sobreviva ningún marcador de plantilla en la columna del elemento.
