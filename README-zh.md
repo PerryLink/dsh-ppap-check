@@ -38,13 +38,7 @@ dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
 |---|---|---|
 | 《生产件批准程序（PPAP）手册》 | AIAG PPAP（现行版次与条号本次未核实） | PP-001, PP-002, PP-003, PP-004, PP-005, PP-006, PP-007 |
 
-**Boundary:** this plugin checks a **PPAP 提交要素清单** for what a checklist can be held to mechanically —
-that an element the customer required carries a submission record, that a submitted element carries a date,
-that a controlled element (design record, FMEA, control plan, process flow, dimensional results, MSA) carries
-a revision, that the sheet names its part number and submission level, that element numbers are unique, and
-that no template placeholder survives. It does **not** decide whether PPAP may be approved, whether the level
-is right, or whether an element's content satisfies the customer. **The submission level is the customer's to
-set, and this plugin ships no level-to-element mapping.**
+**边界（中文译文，以英文原文为准）：** 本插件核对一份 **PPAP 提交要素清单** 中可被机械核对的部分——顾客要求的要素是否留下提交记录，已提交的要素是否填写提交日期，受控要素（设计记录、FMEA、控制计划、过程流程图、尺寸结果、测量系统分析）是否填写版本，清单是否写明零件号与提交等级，要素序号是否唯一，以及是否残留模板占位符。它**不**判定 PPAP 是否可以批准、提交等级是否正确，或要素内容是否满足顾客要求。**提交等级由顾客设定，本插件不附带任何等级与要素的对应关系。**
 
 > ### ⚠️ Read this before trusting a citation in the report
 >
