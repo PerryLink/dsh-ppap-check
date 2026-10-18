@@ -40,19 +40,11 @@ dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
 
 **边界（中文译文，以英文原文为准）：** 本插件核对一份 **PPAP 提交要素清单** 中可被机械核对的部分——顾客要求的要素是否留下提交记录，已提交的要素是否填写提交日期，受控要素（设计记录、FMEA、控制计划、过程流程图、尺寸结果、测量系统分析）是否填写版本，清单是否写明零件号与提交等级，要素序号是否唯一，以及是否残留模板占位符。它**不**判定 PPAP 是否可以批准、提交等级是否正确，或要素内容是否满足顾客要求。**提交等级由顾客设定，本插件不附带任何等级与要素的对应关系。**
 
-> ### ⚠️ Read this before trusting a citation in the report
+> ### ⚠️ 在相信报告中的引文之前，请先读这一节（以英文原文为准）
 >
-> **Every `excerpt` in this plugin's rule pack says, in so many words, that the clause text was not
-> obtained.** The method lives in the automotive **AIAG《生产件批准程序（PPAP）手册》** (and the customer
-> specific requirements under IATF 16949). The verification pass could not retrieve verbatim clause text, so
-> rather than paraphrase a quotation the pack states the gap in the `excerpt` field itself and puts the
-> honest reasoning in `note`. Every rule is therefore `warn` or `info`, and a test asserts that no rule
-> claims a quotation it does not have. **When the text is in hand, two things must be done: replace each
-> `excerpt` with the real clause, and raise `kind` to `direct`.**
+> **本插件规则库中的每一个 `excerpt` 都明文写着：条款原文本次未取得。** 该方法见于汽车行业的 **AIAG《生产件批准程序（PPAP）手册》**（以及 IATF 16949 下的顾客特殊要求）。核验环节无法取得逐字条款原文，因此本规则库不去转述一段引文，而是在 `excerpt` 字段本身写明这一缺口，并把诚实的推理放进 `note`。因此每条规则都是 `warn` 或 `info`，并且有一项测试断言没有任何规则声称拥有它并不拥有的引文。**待取得原文后，必须做两件事：把每个 `excerpt` 换成真实条款，并把 `kind` 提到 `direct`。**
 >
-> **Which elements must be submitted depends on the level the customer specifies** (Level 1–5), so `PP-001`
-> reads the **checklist's own 是否要求 column** rather than any built-in list, and `PP-005`'s level vocabulary
-> ships **empty** — with no vocabulary configured it reports itself in `skipped` instead of passing quietly.
+> **哪些要素必须提交取决于顾客指定的等级**（Level 1–5），因此 `PP-001` 读的是**清单自己的「是否要求」栏**，而不是任何内置清单；`PP-005` 的等级词表出厂为**空**——未配置词表时，它会把自己记入 `skipped`，而不是静默通过。
 
 ## Compatibility
 
