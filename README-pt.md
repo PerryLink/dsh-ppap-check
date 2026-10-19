@@ -30,6 +30,35 @@ Saída real deste plugin sobre o seu próprio fixture de teste `PP-001` — não
 A tabela abaixo é o conjunto de exemplos: a primeira linha é o caso detalhado e as demais são casos curtos.
 
 
+#### Saída detalhada
+
+**Ferramenta** `ppap_check`
+
+**Entrada**
+
+~~~json
+{"partNo":"P-2026-001","partName":"前支架","rows":[{"序号":"1","提交要素":"设计记录","是否要求":"是","是否提交":"是"},{"序号":"2","提交要素":"尺寸结果","是否要求":"是","是否提交":""}]}
+~~~
+ 
+**Saída**
+
+~~~json
+{
+  "id": "dsh-ppap-check.PP-001.de02f9e1",
+  "ruleId": "PP-001",
+  "severity": "warn",
+  "locator": {
+    "row": 2,
+    "field": "required"
+  },
+  "found": "第 2 行「required」为「是」，但缺 submitted",
+  "expected": "满足该条件的行应同时填写 submitted",
+  "fix": "补提交或说明未提交原因；本条只核对清单闭环，不判断要素内容是否合格"
+}
+~~~
+
+*Observado em `dsh-ppap-check/tests/fixtures/PP-001/PP-001-unsafe.json (cases.json expects 1×PP-001); executed parseMaterial+runCheck, checkedAt=2026-10-06T00:00:00.000Z`*
+
 | Você pergunta | O que ele responde |
 |---|---|
 | Um elemento está marcado como exigido na coluna 是否要求, mas não há registo de submissão — isso é reportado? | Sim. `PP-001` assinala a linha quando a coluna `required` contém um valor que conta como exigido (`是`, `Y`, `yes`, `true`, `要求`, `√`) e a coluna `submitted` está vazia. Lê essa coluna da sua própria lista, nunca um catálogo de elementos incorporado — que elementos são exigidos depende do nível que o cliente indicar — e não julga se o conteúdo do que foi submetido é aceitável. |

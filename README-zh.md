@@ -30,6 +30,35 @@ dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
 下表是示例集：第一行是详细走查，其余行是简短案例。
 
 
+#### 详细输出
+
+**工具** `ppap_check`
+
+**输入**
+
+~~~json
+{"partNo":"P-2026-001","partName":"前支架","rows":[{"序号":"1","提交要素":"设计记录","是否要求":"是","是否提交":"是"},{"序号":"2","提交要素":"尺寸结果","是否要求":"是","是否提交":""}]}
+~~~
+ 
+**输出**
+
+~~~json
+{
+  "id": "dsh-ppap-check.PP-001.de02f9e1",
+  "ruleId": "PP-001",
+  "severity": "warn",
+  "locator": {
+    "row": 2,
+    "field": "required"
+  },
+  "found": "第 2 行「required」为「是」，但缺 submitted",
+  "expected": "满足该条件的行应同时填写 submitted",
+  "fix": "补提交或说明未提交原因；本条只核对清单闭环，不判断要素内容是否合格"
+}
+~~~
+
+*来源 `dsh-ppap-check/tests/fixtures/PP-001/PP-001-unsafe.json (cases.json expects 1×PP-001); executed parseMaterial+runCheck, checkedAt=2026-10-06T00:00:00.000Z`*
+
 | 你会问 | 它怎么答 |
 |---|---|
 | 「是否要求」栏标了要求，却没有提交记录，能查出来吗？ | 能。`PP-001` 在 `required` 栏取到表示「要求」的取值（`是`、`Y`、`yes`、`true`、`要求`、`√`）而 `submitted` 栏为空时逐行报出。它读的是你这张清单自己的那一栏，而不是任何内置要素清单——哪些要素属于要求提交取决于顾客指定的等级；它也不判断已提交的要素内容是否合格。 |

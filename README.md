@@ -28,6 +28,35 @@ dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
 
 The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
+#### Detailed output
+
+**Tool** `ppap_check`
+
+**Input**
+
+~~~json
+{"partNo":"P-2026-001","partName":"前支架","rows":[{"序号":"1","提交要素":"设计记录","是否要求":"是","是否提交":"是"},{"序号":"2","提交要素":"尺寸结果","是否要求":"是","是否提交":""}]}
+~~~
+ 
+**Output**
+
+~~~json
+{
+  "id": "dsh-ppap-check.PP-001.de02f9e1",
+  "ruleId": "PP-001",
+  "severity": "warn",
+  "locator": {
+    "row": 2,
+    "field": "required"
+  },
+  "found": "第 2 行「required」为「是」，但缺 submitted",
+  "expected": "满足该条件的行应同时填写 submitted",
+  "fix": "补提交或说明未提交原因；本条只核对清单闭环，不判断要素内容是否合格"
+}
+~~~
+
+*Observed from `dsh-ppap-check/tests/fixtures/PP-001/PP-001-unsafe.json (cases.json expects 1×PP-001); executed parseMaterial+runCheck, checkedAt=2026-10-06T00:00:00.000Z`*
+
 | You ask | What it answers |
 |---|---|
 | An element is marked as required in the 是否要求 column, but there is no submission record for it — is that reported? | Yes. `PP-001` reports the row when the `required` column holds a value that counts as required (`是`, `Y`, `yes`, `true`, `要求`, `√`) while the `submitted` column is empty. It reads that column of your own checklist, never a built-in element list — which elements are required depends on the level the customer specifies — and it does not judge whether the content of what was submitted is acceptable. |
