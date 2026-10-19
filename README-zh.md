@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-ppap-check?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-ppap-check?ref=badge)
 
 `dsh-ppap-check` 读取一份 PPAP 提交要素清单——表头加每个要素一行——核对这份清单自身能被机械核对的部分：顾客要求的要素是否留下提交记录、已提交的要素是否填写提交日期、受控要素（设计记录、FMEA、控制计划、过程流程图、尺寸结果、测量系统分析）是否填写版本、清单是否写明零件号与提交等级、要素序号是否唯一、要素栏是否残留模板占位符。
 
