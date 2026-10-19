@@ -15,13 +15,19 @@ dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
 
 ## 实际输出长什么样
 
-![Terminal demo of dsh-ppap-check: real output over its PP-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-ppap-check/main/docs/assets/dsh-ppap-check-hero.png)
+![dsh-ppap-check 工作流图：文档 → 规则包 → 核对结果。](docs/assets/dsh-ppap-check-flow.svg)
 
-![Animated terminal demo of dsh-ppap-check](https://raw.githubusercontent.com/PerryLink/dsh-ppap-check/main/docs/assets/dsh-ppap-check-demo.gif)
+*工作流概览：文档 → 规则包 → 核对结果。下面的示例使用实际命令面。*
+
 
 本插件对自己 `PP-001` 测试夹具的**真实输出**，不是示意图。规则库不伪造引文，因此每条发现都会同时写明所引条款，以及该条款原文本次未取得。
 
 ## 它回答什么问题
+
+### 示例
+
+下表是示例集：第一行是详细走查，其余行是简短案例。
+
 
 | 你会问 | 它怎么答 |
 |---|---|

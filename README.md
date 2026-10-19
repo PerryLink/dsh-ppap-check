@@ -15,13 +15,17 @@ dsh --profile <name> --dump-config | grep 'dsh-ppap-check'
 
 ## What it looks like
 
-![Terminal demo of dsh-ppap-check: real output over its PP-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-ppap-check/main/docs/assets/dsh-ppap-check-hero.png)
+![Workflow diagram for dsh-ppap-check: document → rule pack → findings.](docs/assets/dsh-ppap-check-flow.svg)
 
-![Animated terminal demo of dsh-ppap-check](https://raw.githubusercontent.com/PerryLink/dsh-ppap-check/main/docs/assets/dsh-ppap-check-demo.gif)
+*Workflow overview: document → rule pack → findings. The examples below use the real command surface.*
 
-Real output from this plugin over its own `PP-001` test fixture — not a mock-up. The rule pack ships no invented quotations, so a finding names both the clause it applied and the fact that the clause text was not obtained.
+
 
 ## What it answers
+
+### Examples
+
+The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
 | You ask | What it answers |
 |---|---|
