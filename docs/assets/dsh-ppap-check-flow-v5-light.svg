@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-label="dsh-ppap-check 结构图：一份 PPAP 提交要素清单的清样。表头由 PP-004 核对、PP-005 因 values 为空未执行；三条行内条件闭合画在列标上方（PP-001 是否要求→是否提交、PP-002 是否提交→提交日期、PP-003 受控要素→版本）；第 2 行与第 4 行的空单元格以斜线标出，差异以页边批注回到行号与栏名；整列扫描 PP-006、PP-007 在页脚注明本次无差异；页脚分成 issues[] 2 条与 skipped[] 1 条两条通道，结论留给审核人。">
+<title>dsh-ppap-check 结构图：一份 PPAP 提交要素清单的清样。表头由 PP-004 核对、PP-005 因 values 为空未执行；三条行内条件闭合画在列标上方（PP-001 是否要求→是否提交、PP-002 是否提交→提交日期、PP-003 受控要素→版本）；第 2 行与第 4 行的空单元格以斜线标出，差异以页边批注回到行号与栏名；整列扫描 PP-006、PP-007 在页脚注明本次无差异；页脚分成 issues[] 2 条与 skipped[] 1 条两条通道，结论留给审核人。</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0.15" y2="1"><stop offset="0" stop-color="#f9f6fd"/><stop offset="1" stop-color="#e4eaf8"/></linearGradient>
+<filter id="soft" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#3a2c66" flood-opacity="0.1"/></filter>
+<marker id="arr" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#4B67B4"/></marker>
+<pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="9" stroke="#b45309" stroke-width="1.6" opacity="0.30"/></pattern>
+</defs>
+<rect x="0" y="0" width="1100" height="660" rx="22" fill="url(#bg)"/>
+<text x="44" y="46" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17" font-weight="700">dsh-ppap-check</text>
+<text x="212" y="46" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5">结构图 · 清单页 + 页边批注</text>
+<text x="1056" y="44" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" text-anchor="end">rules/ppap-check.yaml · 7 条 · 2026.1</text>
+<text x="44" y="74" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5">file / material → parseMaterial()：表头 2 条 · 行内 3 条 · 整列 2 条，七条规则各读清单的一栏；差异带行号与栏名，没能执行的进 skipped。</text>
+<line x1="44" y1="90" x2="1056" y2="90" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<rect x="44" y="104" width="676" height="448" rx="20" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="64" y="138" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="15.5" font-weight="700">提交要素清单</text>
+<text x="170" y="140" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">rows[]</text>
+<rect x="578" y="118" width="122" height="22" rx="11" fill="#f5f2fb"/>
+<text x="639" y="133" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="middle">JSON / YAML · 只读</text>
+<rect x="64" y="150" width="636" height="46" rx="12" fill="#f5f2fb"/>
+<text x="80" y="171" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">partNo</text>
+<text x="126" y="171" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="12.5">P-2026-001</text>
+<text x="272" y="171" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">level</text>
+<text x="310" y="171" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="12.5">Level 3</text>
+<text x="430" y="171" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">partName</text>
+<text x="490" y="171" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5">前支架</text>
+<text x="80" y="190" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">supplier</text>
+<text x="138" y="190" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">某某零部件有限公司</text>
+<text x="276" y="190" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">· 5 行提交要素</text>
+<line x1="204" y1="202" x2="204" y2="210" stroke="#4B67B4" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+<path d="M208 206 H647" fill="none" stroke="#4B67B4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.75" marker-end="url(#arr)"/>
+<rect x="404" y="198" width="48" height="16" rx="8" fill="#ffffff" stroke="#e6e2ef" stroke-width="1"/>
+<text x="428" y="210" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">PP-003</text>
+<line x1="337" y1="220" x2="337" y2="228" stroke="#4B67B4" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+<path d="M341 224 H430" fill="none" stroke="#4B67B4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.75" marker-end="url(#arr)"/>
+<rect x="362" y="216" width="48" height="16" rx="8" fill="#ffffff" stroke="#e6e2ef" stroke-width="1"/>
+<text x="386" y="228" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">PP-001</text>
+<line x1="435" y1="238" x2="435" y2="246" stroke="#4B67B4" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+<path d="M439 242 H540" fill="none" stroke="#4B67B4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.75" marker-end="url(#arr)"/>
+<rect x="466" y="234" width="48" height="16" rx="8" fill="#ffffff" stroke="#e6e2ef" stroke-width="1"/>
+<text x="490" y="246" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">PP-002</text>
+<text x="91" y="270" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5" text-anchor="middle">序号</text>
+<text x="204" y="270" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5" text-anchor="middle">提交要素</text>
+<text x="337" y="270" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5" text-anchor="middle">是否要求</text>
+<text x="435" y="270" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5" text-anchor="middle">是否提交</text>
+<text x="545" y="270" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5" text-anchor="middle">提交日期</text>
+<text x="652" y="270" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5" text-anchor="middle">版本</text>
+<line x1="64" y1="278" x2="700" y2="278" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<line x1="118" y1="280" x2="118" y2="490" stroke="#e3dfee" stroke-width="1" stroke-linecap="round" opacity="0.55"/>
+<line x1="290" y1="280" x2="290" y2="490" stroke="#e3dfee" stroke-width="1" stroke-linecap="round" opacity="0.55"/>
+<line x1="384" y1="280" x2="384" y2="490" stroke="#e3dfee" stroke-width="1" stroke-linecap="round" opacity="0.55"/>
+<line x1="486" y1="280" x2="486" y2="490" stroke="#e3dfee" stroke-width="1" stroke-linecap="round" opacity="0.55"/>
+<line x1="604" y1="280" x2="604" y2="490" stroke="#e3dfee" stroke-width="1" stroke-linecap="round" opacity="0.55"/>
+<line x1="64" y1="280" x2="700" y2="280" stroke="#e3dfee" stroke-width="1" stroke-linecap="round" opacity="0.75"/>
+<text x="91" y="305.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle">1</text>
+<text x="136" y="305.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13">设计记录</text>
+<text x="337" y="305.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" text-anchor="middle">是</text>
+<text x="435" y="305.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" text-anchor="middle">是</text>
+<text x="545" y="305.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="12.5" text-anchor="middle">2026-03-05</text>
+<text x="652" y="305.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle">B</text>
+<rect x="64" y="322" width="636" height="42" rx="0" fill="#f5f2fb" opacity="0.5"/>
+<line x1="64" y1="322" x2="700" y2="322" stroke="#e3dfee" stroke-width="1" stroke-linecap="round" opacity="0.75"/>
+<text x="91" y="347.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle">2</text>
+<text x="136" y="347.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13">尺寸结果</text>
+<text x="337" y="347.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" text-anchor="middle">是</text>
+<rect x="388" y="326" width="94" height="34" rx="6" fill="url(#hatch)" stroke="#b45309" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="435" y="347" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" text-anchor="middle">空</text>
+<text x="545" y="347.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="12.5" text-anchor="middle">2026-03-05</text>
+<text x="652" y="347.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle">B</text>
+<line x1="64" y1="364" x2="700" y2="364" stroke="#e3dfee" stroke-width="1" stroke-linecap="round" opacity="0.75"/>
+<text x="91" y="389.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle">3</text>
+<text x="136" y="389.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13">控制计划</text>
+<text x="337" y="389.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" text-anchor="middle">是</text>
+<text x="435" y="389.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" text-anchor="middle">是</text>
+<text x="545" y="389.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="12.5" text-anchor="middle">2026-03-05</text>
+<text x="652" y="389.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle">C</text>
+<rect x="64" y="406" width="636" height="42" rx="0" fill="#f5f2fb" opacity="0.5"/>
+<line x1="64" y1="406" x2="700" y2="406" stroke="#e3dfee" stroke-width="1" stroke-linecap="round" opacity="0.75"/>
+<text x="91" y="431.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle">4</text>
+<text x="136" y="431.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13">PFMEA</text>
+<text x="337" y="431.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" text-anchor="middle">是</text>
+<text x="435" y="431.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" text-anchor="middle">是</text>
+<text x="545" y="431.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="12.5" text-anchor="middle">2026-03-12</text>
+<rect x="608" y="410" width="88" height="34" rx="6" fill="url(#hatch)" stroke="#b45309" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="652" y="431" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" text-anchor="middle">空</text>
+<line x1="64" y1="448" x2="700" y2="448" stroke="#e3dfee" stroke-width="1" stroke-linecap="round" opacity="0.75"/>
+<text x="91" y="473.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle">5</text>
+<text x="136" y="473.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13">PSW</text>
+<text x="337" y="473.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" text-anchor="middle">是</text>
+<text x="435" y="473.5" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" text-anchor="middle">是</text>
+<text x="545" y="473.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="12.5" text-anchor="middle">2026-03-12</text>
+<text x="652" y="473.5" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle">A</text>
+<line x1="64" y1="490" x2="700" y2="490" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<line x1="64" y1="498" x2="700" y2="498" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="64" y="516" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">整列扫描：PP-007 序号唯一 · PP-006 提交要素占位符 —— 本次均无差异</text>
+<text x="64" y="534" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">条件闭合：PP-001 要求→提交 · PP-002 提交→日期 · PP-003 受控要素→版本（箭头指向必填栏）</text>
+<text x="736" y="126" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" letter-spacing="1.5">页边批注</text>
+<line x1="736" y1="136" x2="1056" y2="136" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="752" y="160" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">表头 · header</text>
+<circle cx="758" cy="177" r="7" fill="#16a34a"/>
+<path d="M754.4 177.2 L756.9 179.6 L761.8 174.2" fill="none" stroke="#ffffff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="772" y="181" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5">PP-004 表头齐备</text>
+<line x1="753" y1="198" x2="764" y2="198" stroke="#8f94a4" stroke-width="1.4" stroke-linecap="round"/>
+<text x="772" y="202" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12">PP-005 未执行 · values 空</text>
+<rect x="736" y="310" width="320" height="68" rx="18" fill="#ffffff" stroke="#ecd3b6" stroke-width="1.2" filter="url(#soft)"/>
+<rect x="750" y="322" width="3" height="44" rx="1.5" fill="#b45309"/>
+<rect x="762" y="320" width="50" height="18" rx="9" fill="#fdf3e9"/>
+<text x="769" y="332.85" fill="#b45309" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">PP-001</text>
+<text x="820" y="333" fill="#b45309" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" opacity="0.85">warn</text>
+<text x="1042" y="334" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">第 2 行</text>
+<text x="762" y="354" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5">是否要求=是，是否提交 为空</text>
+<text x="762" y="371" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">issues[] · locator row 2 / required</text>
+<rect x="736" y="394" width="320" height="68" rx="18" fill="#ffffff" stroke="#ecd3b6" stroke-width="1.2" filter="url(#soft)"/>
+<rect x="750" y="406" width="3" height="44" rx="1.5" fill="#b45309"/>
+<rect x="762" y="404" width="50" height="18" rx="9" fill="#fdf3e9"/>
+<text x="769" y="416.85" fill="#b45309" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">PP-003</text>
+<text x="820" y="417" fill="#b45309" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" opacity="0.85">warn</text>
+<text x="1042" y="418" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">第 4 行</text>
+<text x="762" y="438" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5">PFMEA 受控，版本 为空</text>
+<text x="762" y="455" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">issues[] · locator row 4 / element</text>
+<text x="752" y="486" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">第 1 · 3 · 5 行：本次无差异</text>
+<text x="752" y="512" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">未执行的检查不并入通过；空 issues 不等于没问题</text>
+<line x1="720" y1="181" x2="734" y2="181" stroke="#8f94a4" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/>
+<circle cx="721" cy="181" r="2" fill="#8f94a4"/>
+<line x1="720" y1="344" x2="734" y2="344" stroke="#b45309" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/>
+<circle cx="721" cy="344" r="2" fill="#b45309"/>
+<line x1="720" y1="428" x2="734" y2="428" stroke="#b45309" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/>
+<circle cx="721" cy="428" r="2" fill="#b45309"/>
+<line x1="44" y1="568" x2="1056" y2="568" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<circle cx="48" cy="588" r="3.2" fill="#b45309"/>
+<text x="58" y="592" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5">issues[] 2 条 · 第 2 / 4 行</text>
+<line x1="300" y1="581" x2="300" y2="597" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<circle cx="314" cy="588" r="3.2" fill="none" stroke="#8f94a4" stroke-width="1.4"/>
+<text x="324" y="592" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5">skipped[] 1 条 · PP-005 values 空</text>
+<text x="1056" y="592" fill="#16a34a" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12.5" text-anchor="end">审核人 · 只列差异，不作结论</text>
+<text x="44" y="618" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">buildView() → markdown + reportJson · 措辞守卫 + 免责声明 · 只读材料 · 无网络 · 不调用模型</text>
+</svg>

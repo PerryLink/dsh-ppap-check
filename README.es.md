@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-flow-dark.svg">
-  <img src="docs/assets/dsh-ppap-check-flow-light.svg" width="100%" alt="Flujo de datos de dsh-ppap-check: cabecera de la pieza + lista rows[] de elementos de presentación → herramienta ppap_check → paquete de reglas rules/ppap-check.yaml (PP-001..PP-007) → informe issues[] + skipped[] → veredicto del revisor; la configuración entra por rulesFile / disabledRules / onlyRules / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-ppap-check-hero-en-light.webp" width="100%" alt="dsh-ppap-check: a la izquierda el nombre del plugin y sus frases de valor; a la derecha, la portada de una lista de elementos de presentación del PPAP — pieza P-2026-001, sello Level 3 marcado como fijado por el cliente y cinco filas en las que «Dimensional results» no tiene registro de presentación y «PFMEA» no tiene revisión; el pie indica 2 diferencias y 1 comprobación no ejecutada, con el veredicto en manos del revisor">
 </picture>
 
 # dsh-ppap-check
@@ -43,6 +43,11 @@ No decide si el PPAP puede aprobarse, si el nivel es el correcto ni si el conten
 - **Para quién es**: ingenieros de calidad y de proveedores; no hace falta línea de comandos, basta entregar el material en el chat.
 - **Qué entrega usted**: el material fuente sobre el que trabaja la comprobación (una tabla, una lista o un documento); el original nunca se modifica. Excel puede convertirse antes a JSON/YAML, en el propio chat si la plataforma lo permite.
 - **Qué recibe**: una lista de «qué fila, qué columna, qué falta, cómo corregirlo»; cada comprobación que no pudo ejecutarse aparece en `skipped` con su motivo.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-ppap-check-flow-v5-light.svg" width="100%" alt="dsh-ppap-check, estructura: una hoja de prueba de la lista de elementos de presentación del PPAP — la cabecera la comprueba PP-004 mientras PP-005 no puede ejecutarse porque su lista de valores está vacía; tres cierres condicionales se dibujan sobre las columnas (requerido → presentado, presentado → fecha, elemento controlado → revisión); las celdas vacías de las filas 2 y 4 van rayadas y cada hallazgo se anota en el margen alineado con su fila, con localizador de fila y campo; el pie registra los escaneos de columna PP-006 y PP-007 sin diferencias y separa issues[] (2) de skipped[] (1), con el veredicto en manos del revisor">
+</picture>
 
 ## Instalación en tres pasos
 
@@ -314,7 +319,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"ppap_check","issueCount":1,"summary":{"error":0,"warn":1,"info":0},"skippedCount":1}
 ```
 
-La entrada de muestra vive en `samples/quickstart/input/`, la salida esperada en `samples/quickstart/expected/result.json` y una captura en `docs/assets/quickstart.png`. Las imágenes del README se generan programáticamente con [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) y el script puede reejecutarse; el diagrama de flujo antiguo de una sola piel y las imágenes de demostración se conservan en `docs/assets/` para los enlaces externos, mientras que los README solo referencian el nuevo par claro/oscuro.
+La entrada de muestra vive en `samples/quickstart/input/`, la salida esperada en `samples/quickstart/expected/result.json` y una captura en `docs/assets/quickstart.png`. Las imágenes del README se generan programáticamente con [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para el hero, SVG escrito a mano para el diagrama de estructura) y el script puede reejecutarse; el diagrama de flujo antiguo de una sola piel y las imágenes de demostración se conservan en `docs/assets/` para los enlaces externos, mientras que los README solo referencian las cuatro variantes nuevas del hero y el par claro/oscuro del diagrama.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `ppap`
 

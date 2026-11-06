@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-flow-dark.svg">
-  <img src="docs/assets/dsh-ppap-check-flow-light.svg" width="100%" alt="dsh-ppap-check 数据流：表头 + rows[] 提交要素清单 → ppap_check 工具 → rules/ppap-check.yaml 规则包（PP-001..PP-007）→ issues[] + skipped[] 报告 → 审核人裁决；配置经 rulesFile / disabledRules / onlyRules / timeoutMs 注入">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-ppap-check-hero-zh-light.webp" width="100%" alt="dsh-ppap-check 配图：左列是插件名与价值句；右侧是一份 PPAP 提交要素清单的封面——零件号 P-2026-001 与顾客指定的 Level 3 印章，五行要素中「尺寸结果」缺提交记录、「PFMEA」缺版本，页脚写 2 条差异、1 条未执行，结论留给审核人">
 </picture>
 
 # dsh-ppap-check
@@ -43,6 +43,11 @@ dsh plugin --profile <name> add dsh-ppap-check
 - **给谁用**：质量工程师、供应商管理；不用懂命令行，在对话里把材料交给它即可。
 - **你交什么**：这项核对用到的原始材料（表格、清单或文书）；不改原件。Excel 可先转成 JSON/YAML，对话里也能代转。
 - **它交什么**：一份「哪一行、哪一栏、差什么、怎么补」的清单；没能执行的检查逐条列入 `skipped` 并写明原因。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-ppap-check-flow-v5-light.svg" width="100%" alt="dsh-ppap-check 结构图：一份 PPAP 提交要素清单作为清样页——表头由 PP-004 核对、PP-005 因 values 为空未执行；三条行内条件闭合画在表头上方（是否要求→是否提交、是否提交→提交日期、受控要素→版本）；第 2 行与第 4 行的空单元格以斜线标出，差异以页边批注按行对齐并带回行号与栏名；页脚注明整列扫描 PP-006、PP-007 本次无差异，并分成 issues[] 2 条与 skipped[] 1 条两条通道，结论留给审核人">
+</picture>
 
 ## 三步上手
 
@@ -314,7 +319,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"ppap_check","issueCount":1,"summary":{"error":0,"warn":1,"info":0},"skippedCount":1}
 ```
 
-样例输入在 `samples/quickstart/input/`，期望输出在 `samples/quickstart/expected/result.json`，截图见 `docs/assets/quickstart.png`。README 配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python + Pillow），可重复执行；旧的单版流程图与演示图保留在 `docs/assets/` 供外链使用，README 只引用新生成的深浅双版。
+样例输入在 `samples/quickstart/input/`，期望输出在 `samples/quickstart/expected/result.json`，截图见 `docs/assets/quickstart.png`。README 配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Pillow 画 hero、手写 SVG 画结构图），可重复执行；旧的单版流程图与演示图保留在 `docs/assets/` 供外链使用，README 只引用新生成的 hero 四版与结构图双版。
 
 Topics：`deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `ppap`
 

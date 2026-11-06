@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-flow-dark.svg">
-  <img src="docs/assets/dsh-ppap-check-flow-light.svg" width="100%" alt="dsh-ppap-check data flow: part header + rows[] submission-element checklist → ppap_check tool → rules/ppap-check.yaml rule pack (PP-001..PP-007) → issues[] + skipped[] report → reviewer verdict; config flows in via rulesFile / disabledRules / onlyRules / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-ppap-check-hero-en-light.webp" width="100%" alt="dsh-ppap-check: the plugin name and its value lines on the left; on the right a PPAP submission register cover — part P-2026-001, a Level 3 stamp marked customer-set, and five element rows where Dimensional results has no submission record and PFMEA has no version; the footer reports 2 differences and 1 check not executed, with the verdict left to the reviewer">
 </picture>
 
 # dsh-ppap-check
@@ -43,6 +43,11 @@ It does not decide whether PPAP may be approved, whether the level is right, or 
 - **Who it is for**: quality and supplier engineers; no command line required — hand the material over in chat.
 - **What you give it**: the source material the check works on (a table, register, or document); the original is never modified. Excel can be converted to JSON/YAML first, in chat if the platform supports it.
 - **What you get back**: a list of "which row, which column, what is missing, how to fix it"; every check that could not run is listed in `skipped` with its reason.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-ppap-check-flow-v5-light.svg" width="100%" alt="dsh-ppap-check structure: a PPAP submission register proof sheet — the header is checked by PP-004 while PP-005 cannot run because its value list is empty; three condition closures are drawn over the columns (required → submitted, submitted → date, controlled element → version); the empty cells in rows 2 and 4 are hatched and each finding sits in the page margin aligned with its row, carrying a row and field locator; the footer records the whole-column scans PP-006 and PP-007 as clean and splits issues[] (2) from skipped[] (1), with the verdict left to the reviewer">
+</picture>
 
 ## Three-step setup
 
@@ -314,7 +319,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"ppap_check","issueCount":1,"summary":{"error":0,"warn":1,"info":0},"skippedCount":1}
 ```
 
-The sample input lives in `samples/quickstart/input/`, the expected output in `samples/quickstart/expected/result.json`, and a screenshot in `docs/assets/quickstart.png`. The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) and the script can be re-run; the old single-skin flow diagram and demo images stay in `docs/assets/` for external links, while the READMEs reference only the new light/dark pair.
+The sample input lives in `samples/quickstart/input/`, the expected output in `samples/quickstart/expected/result.json`, and a screenshot in `docs/assets/quickstart.png`. The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow for the hero, hand-written SVG for the structure diagram) and the script can be re-run; the old single-skin flow diagram and demo images stay in `docs/assets/` for external links, while the READMEs reference only the four new hero variants and the light/dark structure pair.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `ppap`
 

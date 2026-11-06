@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-flow-dark.svg">
-  <img src="docs/assets/dsh-ppap-check-flow-light.svg" width="100%" alt="Fluxo de dados do dsh-ppap-check: cabeçalho da peça + lista rows[] de elementos de submissão → ferramenta ppap_check → pacote de regras rules/ppap-check.yaml (PP-001..PP-007) → relatório issues[] + skipped[] → veredito do revisor; a configuração entra por rulesFile / disabledRules / onlyRules / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-ppap-check-hero-en-light.webp" width="100%" alt="dsh-ppap-check: à esquerda o nome do plugin e as suas frases de valor; à direita, a capa de uma lista de elementos de submissão do PPAP — peça P-2026-001, selo Level 3 marcado como definido pelo cliente e cinco linhas em que «Dimensional results» não tem registo de submissão e «PFMEA» não tem revisão; o rodapé indica 2 diferenças e 1 verificação não executada, com o veredito entregue ao revisor">
 </picture>
 
 # dsh-ppap-check
@@ -43,6 +43,11 @@ Não decide se o PPAP pode ser aprovado, se o nível está correto ou se o conte
 - **Para quem é**: engenheiros de qualidade e de fornecedores; não é precisa linha de comandos, basta entregar o material na conversa.
 - **O que você entrega**: o material de origem sobre o qual a verificação trabalha (uma tabela, uma lista ou um documento); o original nunca é modificado. Excel pode ser convertido antes para JSON/YAML, na própria conversa se a plataforma o permitir.
 - **O que recebe de volta**: uma lista de «que linha, que coluna, o que falta, como corrigir»; cada verificação que não pôde ser executada aparece em `skipped` com o seu motivo.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-ppap-check-flow-v5-light.svg" width="100%" alt="dsh-ppap-check, estrutura: uma folha de prova da lista de elementos de submissão do PPAP — o cabeçalho é verificado por PP-004 enquanto PP-005 não pode ser executado porque a sua lista de valores está vazia; três fechos condicionais são desenhados sobre as colunas (exigido → submetido, submetido → data, elemento controlado → revisão); as células vazias das linhas 2 e 4 estão tracejadas e cada achado é anotado na margem alinhado com a sua linha, com localizador de linha e campo; o rodapé registra as varreduras de coluna PP-006 e PP-007 sem diferenças e separa issues[] (2) de skipped[] (1), com o veredito entregue ao revisor">
+</picture>
 
 ## Instalação em três passos
 
@@ -314,7 +319,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"ppap_check","issueCount":1,"summary":{"error":0,"warn":1,"info":0},"skippedCount":1}
 ```
 
-A entrada da amostra vive em `samples/quickstart/input/`, a saída esperada em `samples/quickstart/expected/result.json` e uma captura de ecrã em `docs/assets/quickstart.png`. As imagens do README são geradas programaticamente por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) e o script pode ser reexecutado; o diagrama de fluxo antigo de uma só pele e as imagens de demonstração ficam em `docs/assets/` para ligações externas, enquanto os README só referenciam o novo par claro/escuro.
+A entrada da amostra vive em `samples/quickstart/input/`, a saída esperada em `samples/quickstart/expected/result.json` e uma captura de ecrã em `docs/assets/quickstart.png`. As imagens do README são geradas programaticamente por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para o hero, SVG escrito à mão para o diagrama de estrutura) e o script pode ser reexecutado; o diagrama de fluxo antigo de uma só pele e as imagens de demonstração ficam em `docs/assets/` para ligações externas, enquanto os README só referenciam as quatro variantes novas do hero e o par claro/escuro do diagrama.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `ppap`
 

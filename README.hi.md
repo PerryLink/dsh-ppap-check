@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-flow-dark.svg">
-  <img src="docs/assets/dsh-ppap-check-flow-light.svg" width="100%" alt="dsh-ppap-check डेटा प्रवाह: partNo + rows[] जमा-तत्व सूची → ppap_check उपकरण → rules/ppap-check.yaml नियम-पैक (PP-001..PP-007) → issues[] + skipped[] रिपोर्ट → समीक्षक का निर्णय; कॉन्फ़िग rulesFile / disabledRules / onlyRules / timeoutMs से आता है">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-ppap-check-hero-en-light.webp" width="100%" alt="dsh-ppap-check: बाईं ओर प्लगइन का नाम और मूल्य-पंक्तियाँ; दाईं ओर PPAP जमा-तत्व सूची का आवरण — पार्ट P-2026-001, ग्राहक-निर्धारित Level 3 की मोहर, और पाँच तत्व पंक्तियाँ जिनमें «Dimensional results» का जमा रिकॉर्ड नहीं है और «PFMEA» का संस्करण नहीं है; पाद में 2 अंतर और 1 जाँच अनिष्पादित, निर्णय समीक्षक के पास">
 </picture>
 
 # dsh-ppap-check
@@ -43,6 +43,11 @@ dsh plugin --profile <name> add dsh-ppap-check
 - **किसके लिए है**: गुणवत्ता और आपूर्तिकर्ता इंजीनियर; कमांड लाइन की ज़रूरत नहीं — सामग्री चैट में सौंप दीजिए।
 - **आप क्या देते हैं**: वह मूल सामग्री जिस पर जाँच चलती है (तालिका, सूची या दस्तावेज़); मूल कभी नहीं बदला जाता। Excel को पहले JSON/YAML में बदला जा सकता है, प्लेटफ़ॉर्म समर्थन करे तो चैट में ही।
 - **आपको क्या मिलता है**: «कौन-सी पंक्ति, कौन-सा कॉलम, क्या कमी है, कैसे सुधारें» की सूची; जो जाँच चल नहीं पाई वह `skipped` में कारण सहित दर्ज होती है।
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-ppap-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-ppap-check-flow-v5-light.svg" width="100%" alt="dsh-ppap-check संरचना: PPAP जमा-तत्व सूची की एक प्रूफ़ शीट — शीर्ष भाग PP-004 से जाँचा जाता है जबकि PP-005 नहीं चल सकता क्योंकि उसकी मान-सूची खाली है; कॉलमों के ऊपर तीन शर्त-बंदन (आवश्यक → जमा, जमा → तिथि, नियंत्रित तत्व → संस्करण) खींचे गए हैं; पंक्ति 2 और 4 की खाली कोशिकाएँ छायांकित हैं और हर अंतर अपनी पंक्ति के साथ हाशिये में लिखा है, पंक्ति और फ़ील्ड स्थान के साथ; पाद में पूर्ण-स्तंभ जाँच PP-006 और PP-007 बिना अंतर दर्ज हैं और issues[] (2) तथा skipped[] (1) अलग किए गए हैं, निर्णय समीक्षक के पास">
+</picture>
 
 ## तीन चरणों में शुरुआत
 
@@ -314,7 +319,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"ppap_check","issueCount":1,"summary":{"error":0,"warn":1,"info":0},"skippedCount":1}
 ```
 
-नमूना इनपुट `samples/quickstart/input/` में, अपेक्षित आउटपुट `samples/quickstart/expected/result.json` में, और स्क्रीनशॉट `docs/assets/quickstart.png` में है। README की छवियाँ [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से प्रोग्रामेटिक रूप में बनती हैं (Python + Pillow) और स्क्रिप्ट दोबारा चलाई जा सकती है; पुराना एकल-स्किन फ़्लो चित्र और डेमो छवियाँ बाहरी लिंक के लिए `docs/assets/` में बनी रहती हैं, जबकि README केवल नई हल्की/गहरी जोड़ी को संदर्भित करते हैं।
+नमूना इनपुट `samples/quickstart/input/` में, अपेक्षित आउटपुट `samples/quickstart/expected/result.json` में, और स्क्रीनशॉट `docs/assets/quickstart.png` में है। README की छवियाँ [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से प्रोग्रामेटिक रूप में बनती हैं (hero के लिए Pillow, संरचना चित्र के लिए हाथ से लिखा SVG) और स्क्रिप्ट दोबारा चलाई जा सकती है; पुराना एकल-स्किन फ़्लो चित्र और डेमो छवियाँ बाहरी लिंक के लिए `docs/assets/` में बनी रहती हैं, जबकि README केवल नए चार hero रूपों और संरचना चित्र की हल्की/गहरी जोड़ी को संदर्भित करते हैं।
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `ppap`
 
