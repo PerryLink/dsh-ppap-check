@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "tier": "L1+ingest",
+  "input_formats": ["json", "yaml", "csv", "xlsx", "xlsm", "docx"],
+  "outputs": ["markdown", "json"],
+  "rules": { "total": 7, "executed": 6, "skipped": 1, "manual": 0, "unsupported": 0 },
+  "benchmark": {
+    "kind": "quickstart-sample",
+    "corpus_size": 1,
+    "note": "2-row CSV through dsh-table-ingest; 6/7 rules run, 1 skips on missing header scalar; not a real-world P/R",
+    "measured_at": "2026-11-09"
+  },
+  "limits": [
+    "CSV 不携带 PPAP 表头标量，相关规则会跳过",
+    "不判断提交等级是否适用、不判定供应商能力",
+    "尚无真实 PPAP 文件语料的 P/R"
+  ]
+}
