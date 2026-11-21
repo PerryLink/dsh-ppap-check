@@ -123,6 +123,10 @@ Every PerryLink plugin is listed in the built-in DSH Desktop market: **Market â†
 
 ### Examples
 
+![dsh-ppap-check: real terminal run](docs/assets/dsh-ppap-check-demo.gif)
+
+*Animated replay of a real run recorded in this repository.*
+
 These are the plugin's real entry points; install once, then call one. The first row below is the detailed walkthrough and the rest are short cases.
 
 **Detailed example** â€” tool `ppap_check`, input:

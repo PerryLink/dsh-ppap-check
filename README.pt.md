@@ -49,6 +49,11 @@ Não decide se o PPAP pode ser aprovado, se o nível está correto ou se o conte
   <img src="docs/assets/dsh-ppap-check-flow-v5-light.svg" width="100%" alt="dsh-ppap-check, estrutura: uma folha de prova da lista de elementos de submissão do PPAP — o cabeçalho é verificado por PP-004 enquanto PP-005 não pode ser executado porque a sua lista de valores está vazia; três fechos condicionais são desenhados sobre as colunas (exigido → submetido, submetido → data, elemento controlado → revisão); as células vazias das linhas 2 e 4 estão tracejadas e cada achado é anotado na margem alinhado com a sua linha, com localizador de linha e campo; o rodapé registra as varreduras de coluna PP-006 e PP-007 sem diferenças e separa issues[] (2) de skipped[] (1), com o veredito entregue ao revisor">
 </picture>
 
+![dsh-ppap-check: execução real de terminal](docs/assets/dsh-ppap-check-demo.gif)
+
+*Repetição animada de uma execução real registrada neste repositório.*
+
+
 ## Instalação em três passos
 
 1. **Instale** (escolha um canal):
