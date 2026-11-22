@@ -7,6 +7,8 @@
 
 # dsh-ppap-check
 
+Current version `0.2.13`.
+
 **Check a PPAP submission-element checklist for completeness and internal consistency — you get a list of which row, which column, and what to fix; the verdict stays with the reviewer.**
 
 A data-only checker plugin for DeepSeek Harness: it reads one PPAP submission-element checklist (the part header plus one row per element), applies the versioned rule pack it ships (PP-001..PP-007), and lists only the differences it can point to inside the material — never a compliance verdict, never a liability finding.
